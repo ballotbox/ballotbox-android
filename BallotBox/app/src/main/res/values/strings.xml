@@ -3,6 +3,7 @@
 
     <string name="app_name">BallotBox</string>
     <string name="hello_world">Hello world!</string>
+    <string name="public_votes">Public votes</string>
     <string name="action_settings">Settings</string>
     <string name="login">Log In</string>
     <string name="username">Username:</string>

@@ -3,6 +3,7 @@ package com.example.gulena.ballotbox;
 import android.app.Activity;
 import android.app.ActionBar;
 import android.app.Fragment;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -10,7 +11,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.os.Build;
-
+import android.widget.Toast;
 
 
 public class MainActivity extends Activity {
@@ -41,7 +42,12 @@ public class MainActivity extends Activity {
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
         if (id == R.id.action_settings) {
+            Toast msg = Toast.makeText(this,"Settings selected",Toast.LENGTH_LONG);
+            msg.show();
             return true;
+        } else if(id == R.id.menu_public_votes) {
+            Intent intent = new Intent(this,PublicVotesActivity.class);
+            startActivity(intent);
         }
         return super.onOptionsItemSelected(item);
     }

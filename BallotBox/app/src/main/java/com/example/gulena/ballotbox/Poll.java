@@ -1,7 +1,5 @@
 package com.example.gulena.ballotbox;
 
-import android.os.Parcelable;
-
 import org.json.JSONObject;
 
 import java.io.Serializable;
@@ -42,5 +40,21 @@ public class Poll implements Serializable {
 
     public String getRandom_access_id() {
         return random_access_id;
+    }
+
+    public void setQuestion(String question) {
+        this.question = question;
+    }
+
+    public void setChoices(List<Choice> choices) {
+        this.choices = choices;
+    }
+
+    public void setQuestion_id(int question_id) {
+        this.question_id = question_id;
+    }
+
+    public void setRandom_access_id(String random_access_id) {
+        this.random_access_id = random_access_id;
     }
 }

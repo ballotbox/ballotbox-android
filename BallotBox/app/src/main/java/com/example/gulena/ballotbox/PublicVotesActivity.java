@@ -36,7 +36,7 @@ public class PublicVotesActivity extends ListActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.public_votes);
-        array = new ArrayAdapter<Poll>(this,R.layout.public_votes,polls);
+        array = new PublicVotesAdapter(this,R.layout.public_votes,polls);
     }
 
     @Override
@@ -65,7 +65,7 @@ public class PublicVotesActivity extends ListActivity {
 
             @Override
             public void failure(RetrofitError error) {
-                Toast.makeText(PublicVotesActivity.this,"Could not get data",Toast.LENGTH_LONG);
+                Toast.makeText(PublicVotesActivity.this, "Could not get data", Toast.LENGTH_LONG);
             }
         });
     }

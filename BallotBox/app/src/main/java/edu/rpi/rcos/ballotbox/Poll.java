@@ -12,15 +12,6 @@ public class Poll implements Serializable {
     private int question_id;
     private String random_access_id;
 
-    public void update_information() {
-        try {
-            JSONObject jsonObject = APIBrowser.getSinglePoll(this);
-        } catch(Exception e) {
-            //manage exception here
-        }
-        //Fill in object information
-    }
-
     public String getQuestion() {
         return question;
     }

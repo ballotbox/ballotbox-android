@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:dividerPadding="0dp"
+    android:weightSum="3">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="@string/view_public"
+        android:id="@+id/ViewPublic"
+        android:layout_gravity="center_horizontal"
+        android:gravity="center"
+        android:autoText="false"
+        android:layout_weight="1"
+        android:onClick="createNewPoll()" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="@string/view_private"
+        android:id="@+id/textView2"
+        android:layout_gravity="center_horizontal"
+        android:layout_weight=".5"
+        android:gravity="center"
+        android:background="#ffd9deb6" />
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_weight="0.5"
+        android:gravity="center_vertical"
+        android:background="#ffd9deb6">
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/private_poll_id_edit"
+            android:layout_weight="3" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/view_private_button_text"
+            android:id="@+id/button"
+            android:onClick="viewPrivatePoll()" />
+    </LinearLayout>
+
+    <TextView
+            android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="@string/add_new"
+        android:id="@+id/new_poll_menu_text"
+        android:layout_gravity="center_horizontal"
+        android:gravity="center"
+        android:layout_weight="1"
+        android:onClick="createNewPoll()" />
+
+</LinearLayout>

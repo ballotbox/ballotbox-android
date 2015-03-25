@@ -15,6 +15,7 @@ import com.example.gulena.ballotbox.R;
 
 public class VoteActivity extends Activity {
 
+    protected Poll p;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,11 +39,8 @@ public class VoteActivity extends Activity {
 
     }
 
-
-
-    protected Poll p;
-
-    public static void openVoteView(String vote_id, Context c) {
+    public static boolean openVoteView(String vote_id, Context c) {
         Intent intent = new Intent(c,VoteActivity.class);  //caching?
+        return false;
     }
 }

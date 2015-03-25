@@ -34,13 +34,7 @@ public class PublicVotesActivity extends ListActivity {
     protected void onListItemClick(ListView l, View v, int position, long id) {
         super.onListItemClick(l, v, position, id);
         Poll p = polls.get(position);
-        p.update_information(); // send HTTP request data
-        Intent intent = new Intent(this,VotingActivity.class);
-        //Add context
-        intent.putExtra("Poll",p);
-        startActivity(intent);
-        //get Poll information
-        //send to
+        VoteActivity.openVoteView(p.getRandom_access_id(),this);
     }
 
     public void requestData(String uri) {

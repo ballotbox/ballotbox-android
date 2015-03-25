@@ -9,7 +9,7 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 
 public class APIBrowser {
-    public static final String BASE_URL = "http://ballotbox.com/api";
+    public static final String BASE_URL = "http://ballot-box.herokuapp.com";
     public static final String PUBLIC_VOTES_URL = "";
 
     public static JSONObject request(String urlString) throws Exception {

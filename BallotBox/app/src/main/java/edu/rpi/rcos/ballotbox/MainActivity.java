@@ -1,4 +1,4 @@
-package com.example.gulena.ballotbox;
+package edu.rpi.rcos.ballotbox;
 
 import android.app.Activity;
 import android.app.Fragment;
@@ -10,6 +10,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
+
+import com.example.gulena.ballotbox.R;
 
 
 public class MainActivity extends Activity {

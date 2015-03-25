@@ -1,23 +1,14 @@
-package com.example.gulena.ballotbox;
+package edu.rpi.rcos.ballotbox;
 
-import android.app.Activity;
-import android.app.ActionBar;
-import android.app.Fragment;
 import android.app.ListActivity;
 import android.content.Intent;
-import android.os.AsyncTask;
 import android.os.Bundle;
-import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
-import android.os.Build;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
-import org.json.JSONArray;
+import com.example.gulena.ballotbox.R;
 
 import java.util.List;
 
@@ -29,7 +20,7 @@ import retrofit.client.Response;
 public class PublicVotesActivity extends ListActivity {
 
 
-    public String ENDPOINT = "http://ballotbox.io/api";
+    public String ENDPOINT = "http://ballot-box.herokuapp.com/";
     protected List<Poll> polls;
     ArrayAdapter<Poll> array;
     @Override

@@ -1,4 +1,4 @@
-package com.example.gulena.ballotbox;
+package edu.rpi.rcos.ballotbox;
 
 
 import java.io.Serializable;

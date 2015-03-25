@@ -1,4 +1,4 @@
-package com.example.gulena.ballotbox;
+package edu.rpi.rcos.ballotbox;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;

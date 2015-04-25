@@ -9,9 +9,9 @@ import retrofit.http.Path;
 public interface VotesAPI {
 
     @GET("/api/votes/{id}")
-    public void getPoll(@Path("id") String randId, retrofit.Callback<Poll> response);
+    public void getElection(@Path("id") String randId, retrofit.Callback<Election> response);
 
     @GET("/api/votes/")
-    public void getPublicPolls(Callback<List<Poll>> response);
+    public void getPublicElections(Callback<List<Election>> response);
 
 }

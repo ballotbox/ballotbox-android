@@ -5,20 +5,20 @@ import org.json.JSONObject;
 import java.io.Serializable;
 import java.util.List;
 
-public class Poll implements Serializable {
+public class Election implements Serializable {
 
     private String question;
     private List<Choice> choices;
     private int question_id;
     private String random_access_id;
 
-    public Poll(String question,List<Choice> choices, String random_id) {
+    public Election(String question, List<Choice> choices, String random_id) {
         this.question = question;
         this.choices = choices;
         this.random_access_id = random_id;
     }
 
-    public Poll() {}
+    public Election() {}
 
     public String getQuestion() {
         return question;

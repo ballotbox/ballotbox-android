@@ -5,10 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.gulena.ballotbox.R;
 
@@ -29,7 +26,7 @@ public class MainMenuActivity extends Activity {
         viewPublicButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                viewPublicPolls();
+                viewPublicElections();
             }
         });
 
@@ -37,16 +34,16 @@ public class MainMenuActivity extends Activity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                EditText privateEdit = (EditText) findViewById(R.id.private_poll_id_edit);
-                viewPrivatePoll(privateEdit.getText().toString());
+                EditText privateEdit = (EditText) findViewById(R.id.private_election_id_edit);
+                viewPrivateElection(privateEdit.getText().toString());
             }
         });
 
-        View addNewPoll = findViewById(R.id.new_poll_menu_text);
-        addNewPoll.setOnClickListener(new View.OnClickListener() {
+        View addNewElection = findViewById(R.id.new_election_menu_text);
+        addNewElection.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                createNewPoll();
+                createNewElection();
             }
         });
 
@@ -55,7 +52,7 @@ public class MainMenuActivity extends Activity {
     /*
     *   Go to Public Polls Activity
      */
-    public void viewPublicPolls() {
+    public void viewPublicElections() {
         Intent intent = new Intent(this,PublicVotesActivity.class);
         intent.putExtra("data_manager",dataManager);
         startActivity(intent);
@@ -66,19 +63,19 @@ public class MainMenuActivity extends Activity {
     *       Else, toast failure.
      */
 
-    public void viewPrivatePoll(String private_id) {
+    public void viewPrivateElection(String private_id) {
         if(private_id != null && !private_id.equals("")) {
             Intent intent = new Intent(this,VoteActivity.class);
             intent.putExtra("random_id",private_id);
             intent.putExtra("data_manager",dataManager);
-            Log.i(TAG,"Visiting poll with id " + private_id + ".");
+            Log.i(TAG,"Visiting election with id " + private_id + ".");
             startActivity(intent);
         }
     }
 
 
-    public void createNewPoll() {
-        Intent intent = new Intent(this,NewPollActivity.class);
+    public void createNewElection() {
+        Intent intent = new Intent(this,NewElectionActivity.class);
         intent.putExtra("data_manager",dataManager);
         startActivity(intent);
     }

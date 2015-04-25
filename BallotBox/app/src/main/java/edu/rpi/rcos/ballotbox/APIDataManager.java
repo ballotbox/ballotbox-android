@@ -12,13 +12,38 @@ public class APIDataManager implements DataManager {
     String authKey;
     public APIDataManager() {}
     @Override
-    public Poll getPollWithID(String private_id) {
+    public Election getElectionWithID(String private_id) {
         return null;
     }
 
     @Override
-    public ArrayList<Poll> getPublicPolls() {
+    public ArrayList<Election> getPublicElections() {
         return null;
+    }
+
+    @Override
+    public Choice getVoteOnElection(Election p) {
+        return null;
+    }
+
+    @Override
+    public Election createNewElection(Election p) {
+        return null;
+    }
+
+    @Override
+    public Election editElection(Election p) {
+        return null;
+    }
+
+    @Override
+    public boolean deleteElection(Election p) {
+        return false;
+    }
+
+    @Override
+    public boolean voteOnElection(Election p, Choice c) {
+        return false;
     }
 
     @Override

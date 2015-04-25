@@ -5,15 +5,15 @@ import android.widget.ArrayAdapter;
 
 import java.util.List;
 
-public class PublicVotesAdapter extends ArrayAdapter<Poll> {
+public class PublicVotesAdapter extends ArrayAdapter<Election> {
 
-    List<Poll> polls;
-    public PublicVotesAdapter(Context context, int resource, List<Poll> polls) {
+    List<Election> elections;
+    public PublicVotesAdapter(Context context, int resource, List<Election> elections) {
         super(context, resource);
-        this.polls = polls;
+        this.elections = elections;
     }
 
-    public void setPolls(List<Poll> polls) {
-        this.polls = polls;
+    public void setElections(List<Election> elections) {
+        this.elections = elections;
     }
 }

@@ -9,7 +9,7 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Question"
-        android:id="@+id/poll_question_text"
+        android:id="@+id/election_question_text"
         android:layout_gravity="center"
         android:gravity="center" />
 </LinearLayout>

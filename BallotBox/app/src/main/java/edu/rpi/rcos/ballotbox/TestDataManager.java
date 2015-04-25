@@ -1,12 +1,35 @@
 package edu.rpi.rcos.ballotbox;
 
 import android.os.Parcel;
-import android.os.Parcelable;
-import android.provider.ContactsContract;
 
 import java.util.ArrayList;
 
 public class TestDataManager implements DataManager {
+
+    private ArrayList<Election> test_elections;
+    private ArrayList<Election> public_elections;
+
+    public TestDataManager() {
+        Election p = new Election();
+        p.setQuestion("Is this a question?");
+        p.setQuestion_id(1);
+        ArrayList<Choice> choices = new ArrayList<Choice>();
+        choices.add(new Choice("No."));
+        choices.add(new Choice("Maybe"));
+        p.setChoices(choices);
+        p.setRandom_access_id("Q1");
+        test_elections.add(p);
+
+        Election p2 = new Election();
+        p2.setQuestion("Is this the next question?");
+        p2.setQuestion_id(2);
+        choices = new ArrayList<Choice>();
+        choices.add(new Choice("Choice A."));
+        choices.add(new Choice("Choice B."));
+        p2.setChoices(choices);
+        p2.setRandom_access_id("Q2");
+        public_elections.add(p);
+    }
 
     public static final Creator<TestDataManager> CREATOR =
             new Creator<TestDataManager>() {
@@ -23,29 +46,43 @@ public class TestDataManager implements DataManager {
             };
 
     @Override
-    public Poll getPollWithID(String private_id) {
-        if(private_id.equals("FAKE")) {
-            return null;
+    public Election getElectionWithID(String private_id) {
+        for(Election p : test_elections) {
+            if(p.getRandom_access_id().equals(private_id)) {
+                return p;
+            }
         }
-        ArrayList<Choice> choices = new ArrayList<Choice>();
-        choices.add(new Choice("Nothing"));
-        choices.add(new Choice("Everything"));
-        return new Poll("What is this?",choices,private_id);
+        return null;
     }
 
     @Override
-    public ArrayList<Poll> getPublicPolls() {
-        ArrayList<Poll> polls = new ArrayList<Poll>();
-        Poll p = new Poll();
-        p.setQuestion("Is this a question?");
-        p.setQuestion_id(1);
-        ArrayList<Choice> choices = new ArrayList<Choice>();
-        choices.add(new Choice("No."));
-        choices.add(new Choice("Maybe"));
-        p.setChoices(choices);
-        p.setRandom_access_id("ABLAK");
-        polls.add(p);
-        return polls;
+    public ArrayList<Election> getPublicElections() {
+        return public_elections;
+    }
+
+    @Override
+    public Choice getVoteOnElection(Election p) {
+        return null;
+    }
+
+    @Override
+    public Election createNewElection(Election p) {
+        return null;
+    }
+
+    @Override
+    public Election editElection(Election p) {
+        return null;
+    }
+
+    @Override
+    public boolean deleteElection(Election p) {
+        return false;
+    }
+
+    @Override
+    public boolean voteOnElection(Election p, Choice c) {
+        return false;
     }
 
     @Override

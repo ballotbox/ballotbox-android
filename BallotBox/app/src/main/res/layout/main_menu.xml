@@ -41,7 +41,7 @@
         <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/private_poll_id_edit"
+            android:id="@+id/private_election_id_edit"
             android:layout_weight="3" />
 
         <Button
@@ -57,7 +57,7 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="@string/add_new"
-        android:id="@+id/new_poll_menu_text"
+        android:id="@+id/new_election_menu_text"
         android:layout_gravity="center_horizontal"
         android:gravity="center"
         android:layout_weight="1"

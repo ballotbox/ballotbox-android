@@ -26,11 +26,11 @@ public class APIBrowser {
         return new JSONObject(sb.toString());
     }
 
-    public static JSONObject getSinglePoll(Poll p) throws Exception {
-        return request(BASE_URL + "/" + p.getRandom_access_id());
+    public static JSONObject getSingleElection(Election e) throws Exception {
+        return request(BASE_URL + "/" + e.getRandom_access_id());
     }
 
-    public static JSONArray getPublicPolls() throws Exception {
+    public static JSONArray getPublicElections() throws Exception {
 
         JSONObject returned_object = request(BASE_URL + PUBLIC_VOTES_URL);
         return returned_object.getJSONArray("Public_Votes");

@@ -4,21 +4,38 @@ import android.os.Parcelable;
 
 import java.util.List;
 
-public interface DataManager extends Parcelable {
+public interface DataManager extends Parcelable {  // consider making abstract class
+
+    public boolean login(String username, String password);
+
+    public boolean isLoggedIn();
+
+    //GET METHODS
+
     /**
      *
      * @param private_id the hidden id of each poll needed to access its internals
      * @return the poll with the given private_id, or null if no such poll exists
      */
-    public Poll getPollWithID(String private_id);
+    public Election getElectionWithID(String private_id);
 
     /**
      *
      * @return A list of all of the polls that have been set to public
      */
-    public List<Poll> getPublicPolls();
+    public List<Election> getPublicElections();
 
-    public boolean login(String username, String password);
+    public Choice getVoteOnElection(Election p);
 
-    public boolean isLoggedIn();
+    //POST METHODS
+
+    public Election createNewElection(Election p);
+
+    public Election editElection(Election p);
+
+    public boolean deleteElection(Election p);
+
+    public boolean voteOnElection(Election p, Choice c);
+
+
 }

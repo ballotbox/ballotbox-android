@@ -8,7 +8,7 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name="edu.rpi.rcos.ballotbox.MainActivity"
+            android:name="edu.rpi.rcos.ballotbox.MainMenuActivity"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -19,6 +19,21 @@
 
         <activity
             android:name="edu.rpi.rcos.ballotbox.PublicVotesActivity"
+            android:label="@string/app_name" >
+        </activity>
+
+        <activity
+            android:name="edu.rpi.rcos.ballotbox.NewPollActivity"
+            android:label="@string/app_name" >
+        </activity>
+
+        <activity
+            android:name="edu.rpi.rcos.ballotbox.VoteActivity"
+            android:label="@string/app_name" >
+        </activity>
+
+        <activity
+            android:name="edu.rpi.rcos.ballotbox.LoginActivity"
             android:label="@string/app_name" >
         </activity>
 

@@ -9,6 +9,12 @@ public class Choice implements Serializable {
     private boolean voted;
     private int voter_count;
 
+    public Choice() {}
+
+    public Choice(String text) {
+        this.text = text;
+    }
+
     public String getText() {
         return text;
     }

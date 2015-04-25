@@ -12,6 +12,14 @@ public class Poll implements Serializable {
     private int question_id;
     private String random_access_id;
 
+    public Poll(String question,List<Choice> choices, String random_id) {
+        this.question = question;
+        this.choices = choices;
+        this.random_access_id = random_id;
+    }
+
+    public Poll() {}
+
     public String getQuestion() {
         return question;
     }

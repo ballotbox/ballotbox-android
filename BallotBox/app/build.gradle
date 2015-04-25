@@ -25,4 +25,5 @@ android {
 dependencies {
     compile 'com.shamanland:fab:0.0.3' // FAB
     compile 'com.squareup.retrofit:retrofit:1.9.0' //Retrofit
+    compile 'com.google.apis:google-api-services-oauth2:v1-rev91-1.20.0'
 }

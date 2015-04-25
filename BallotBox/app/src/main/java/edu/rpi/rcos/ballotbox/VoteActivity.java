@@ -10,15 +10,28 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.example.gulena.ballotbox.R;
+
+import java.util.ArrayList;
 
 public class VoteActivity extends Activity {
 
     protected Poll p;
+    DataManager dataManager;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        String private_id = getIntent().getStringExtra("random_id");
+        dataManager = (getIntent().getParcelableExtra("data_manager"));
+        p = dataManager.getPollWithID(private_id);
+        if(p == null) {
+            Toast.makeText(this, "Could not find ballot with id: " + private_id,
+                    Toast.LENGTH_LONG).show();
+            finish();
+            return;
+        }
         setContentView(R.layout.single_poll);
         ArrayAdapter<Choice> choiceArrayAdapter = new ChoiceAdapter(this, p.getChoices());
         ListView listView = (ListView) findViewById(R.id.choiceList);
@@ -36,11 +49,5 @@ public class VoteActivity extends Activity {
                 //TODO: make post request
             }
         });
-
-    }
-
-    public static boolean openVoteView(String vote_id, Context c) {
-        Intent intent = new Intent(c,VoteActivity.class);  //caching?
-        return false;
     }
 }

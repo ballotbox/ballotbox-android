@@ -14,14 +14,14 @@ public interface DataManager extends Parcelable {  // consider making abstract c
 
     /**
      *
-     * @param private_id the hidden id of each poll needed to access its internals
-     * @return the poll with the given private_id, or null if no such poll exists
+     * @param private_id the hidden id of each election needed to access its internals
+     * @return the election with the given private_id, or null if no such election exists
      */
     public Election getElectionWithID(String private_id);
 
     /**
      *
-     * @return A list of all of the polls that have been set to public
+     * @return A list of all of the elections that have been set to public
      */
     public List<Election> getPublicElections();
 

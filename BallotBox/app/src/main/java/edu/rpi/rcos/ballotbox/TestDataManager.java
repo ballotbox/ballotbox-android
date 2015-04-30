@@ -1,6 +1,7 @@
 package edu.rpi.rcos.ballotbox;
 
 import android.os.Parcel;
+import android.util.Log;
 
 import java.util.ArrayList;
 
@@ -10,25 +11,30 @@ public class TestDataManager implements DataManager {
     private ArrayList<Election> public_elections;
 
     public TestDataManager() {
+        test_elections = new ArrayList<Election>();
+        public_elections = new ArrayList<Election>();
+
         Election p = new Election();
+
         p.setQuestion("Is this a question?");
-        p.setQuestion_id(1);
+        p.setId(1);
         ArrayList<Choice> choices = new ArrayList<Choice>();
         choices.add(new Choice("No."));
         choices.add(new Choice("Maybe"));
         p.setChoices(choices);
-        p.setRandom_access_id("Q1");
+        p.setRandomAccessId("Q1");
         test_elections.add(p);
 
         Election p2 = new Election();
         p2.setQuestion("Is this the next question?");
-        p2.setQuestion_id(2);
+        p2.setId(2);
         choices = new ArrayList<Choice>();
         choices.add(new Choice("Choice A."));
         choices.add(new Choice("Choice B."));
         p2.setChoices(choices);
-        p2.setRandom_access_id("Q2");
-        public_elections.add(p);
+        p2.setRandomAccessId("Q2");
+        test_elections.add(p2);
+        public_elections.add(p2);
     }
 
     public static final Creator<TestDataManager> CREATOR =
@@ -48,7 +54,7 @@ public class TestDataManager implements DataManager {
     @Override
     public Election getElectionWithID(String private_id) {
         for(Election p : test_elections) {
-            if(p.getRandom_access_id().equals(private_id)) {
+            if(p.getRandomAccessId().equals(private_id)) {
                 return p;
             }
         }

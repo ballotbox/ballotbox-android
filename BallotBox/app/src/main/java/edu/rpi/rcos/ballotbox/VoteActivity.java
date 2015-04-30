@@ -1,6 +1,7 @@
 package edu.rpi.rcos.ballotbox;
 
 import android.app.Activity;
+import android.app.ListActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -8,13 +9,15 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.gulena.ballotbox.R;
 
-public class VoteActivity extends Activity {
+public class VoteActivity extends ListActivity {
 
     protected Election p;
+    ChoiceAdapter array;
     DataManager dataManager;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,9 +32,11 @@ public class VoteActivity extends Activity {
             return;
         }
         setContentView(R.layout.single_election);
-        ArrayAdapter<Choice> choiceArrayAdapter = new ChoiceAdapter(this, p.getChoices());
-        ListView listView = (ListView) findViewById(R.id.choiceList);
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        array = new ChoiceAdapter(this, p.getChoices());
+        TextView title = (TextView) findViewById(R.id.election_title);
+        title.setText(p.getQuestion());
+        setListAdapter(array);
+        getListView().setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 CheckBox checkbox = (CheckBox) view.findViewById(R.id.choiceCheckBox);
@@ -42,7 +47,8 @@ public class VoteActivity extends Activity {
         submitButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //TODO: make post request
+                Choice c = new Choice(); //TODO get choice
+                dataManager.voteOnElection(p,c);
             }
         });
     }

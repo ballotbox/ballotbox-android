@@ -27,7 +27,7 @@ public class APIBrowser {
     }
 
     public static JSONObject getSingleElection(Election e) throws Exception {
-        return request(BASE_URL + "/" + e.getRandom_access_id());
+        return request(BASE_URL + "/" + e.getRandomAccessId());
     }
 
     public static JSONArray getPublicElections() throws Exception {

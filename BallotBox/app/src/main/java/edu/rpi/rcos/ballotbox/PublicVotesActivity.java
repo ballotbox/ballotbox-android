@@ -48,9 +48,9 @@ public class PublicVotesActivity extends ListActivity {
         super.onListItemClick(l, v, position, id);
         Election p = elections.get(position);
         Intent intent = new Intent(this,VoteActivity.class);
-        intent.putExtra("random_id",p.getRandom_access_id());
+        intent.putExtra("random_id",p.getRandomAccessId());
         intent.putExtra("data_manager",dataManager);
-        Log.i("PublicVotesActivity","Transitioning to election with id " + p.getRandom_access_id());
+        Log.i("PublicVotesActivity","Transitioning to election with id " + p.getRandomAccessId());
         startActivity(intent);
     }
 

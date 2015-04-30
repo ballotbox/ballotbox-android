@@ -1,7 +1,5 @@
 package edu.rpi.rcos.ballotbox;
 
-import org.json.JSONObject;
-
 import java.io.Serializable;
 import java.util.List;
 
@@ -9,13 +7,14 @@ public class Election implements Serializable {
 
     private String question;
     private List<Choice> choices;
-    private int question_id;
-    private String random_access_id;
+    private int id;
+    private String randomAccessId;
+    private Choice votedChoice;
 
     public Election(String question, List<Choice> choices, String random_id) {
         this.question = question;
         this.choices = choices;
-        this.random_access_id = random_id;
+        this.randomAccessId = random_id;
     }
 
     public Election() {}
@@ -28,12 +27,12 @@ public class Election implements Serializable {
         return choices;
     }
 
-    public int getQuestion_id() {
-        return question_id;
+    public int getId() {
+        return id;
     }
 
-    public String getRandom_access_id() {
-        return random_access_id;
+    public String getRandomAccessId() {
+        return randomAccessId;
     }
 
     public void setQuestion(String question) {
@@ -44,11 +43,19 @@ public class Election implements Serializable {
         this.choices = choices;
     }
 
-    public void setQuestion_id(int question_id) {
-        this.question_id = question_id;
+    public void setId(int id) {
+        this.id = id;
     }
 
-    public void setRandom_access_id(String random_access_id) {
-        this.random_access_id = random_access_id;
+    public void setRandomAccessId(String randomAccessId) {
+        this.randomAccessId = randomAccessId;
+    }
+
+    public Choice getVotedChoice() {
+        return votedChoice;
+    }
+
+    public void setVotedChoice(Choice votedChoice) {
+        this.votedChoice = votedChoice;
     }
 }

@@ -20,7 +20,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/fab_button"
         android:src="@drawable/ic_launcher"
-        android:onClick="addNewPoll(this)"
+        android:onClick="addNewElection(this)"
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />

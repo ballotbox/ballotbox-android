@@ -66,7 +66,7 @@ public class MainMenuActivity extends Activity {
     public void viewPrivateElection(String private_id) {
         if(private_id != null && !private_id.equals("")) {
             Intent intent = new Intent(this,VoteActivity.class);
-            intent.putExtra("random_id",private_id);
+            intent.putExtra("random_id",private_id.trim());
             intent.putExtra("data_manager",dataManager);
             Log.i(TAG,"Visiting election with id " + private_id + ".");
             startActivity(intent);

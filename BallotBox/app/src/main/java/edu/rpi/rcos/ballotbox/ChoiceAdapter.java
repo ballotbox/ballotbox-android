@@ -1,6 +1,7 @@
 package edu.rpi.rcos.ballotbox;
 
 import android.content.Context;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
@@ -20,9 +21,9 @@ public class ChoiceAdapter extends ArrayAdapter<Choice> {
     public View getView(int position, View convertView, ViewGroup parent) {
         Choice choice = getItem(position);
         if(convertView == null) {
+            convertView = LayoutInflater.from(getContext()).inflate(R.layout.item_choice, parent, false);
 
         }
-
         TextView choiceName = (TextView) convertView.findViewById(R.id.choiceName);
         choiceName.setText(choice.getText());
         CheckBox checkBox = (CheckBox) convertView.findViewById(R.id.choiceCheckBox);

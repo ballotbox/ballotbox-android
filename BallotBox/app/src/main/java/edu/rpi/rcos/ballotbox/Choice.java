@@ -7,7 +7,7 @@ public class Choice implements Serializable {
     private String text;
     private int id;
     private boolean voted;
-    private int voter_count;
+    private int voteCount;
 
     public Choice() {}
 
@@ -31,12 +31,12 @@ public class Choice implements Serializable {
         this.id = id;
     }
 
-    public int getVoter_count() {
-        return voter_count;
+    public int getVoteCount() {
+        return voteCount;
     }
 
-    public void setVoter_count(int voter_count) {
-        this.voter_count = voter_count;
+    public void setVoteCount(int voteCount) {
+        this.voteCount = voteCount;
     }
 
     public boolean isVoted() {
@@ -45,5 +45,13 @@ public class Choice implements Serializable {
 
     public void setVoted(boolean voted) {
         this.voted = voted;
+    }
+
+    @Override
+    public boolean equals(Object c2) {
+        if(c2 == null || !(c2 instanceof Choice)) {
+            return false;
+        }
+        return ((Choice)c2).getId() == id;
     }
 }

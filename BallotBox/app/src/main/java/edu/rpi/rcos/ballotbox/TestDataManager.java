@@ -9,6 +9,7 @@ public class TestDataManager implements DataManager {
 
     private ArrayList<Election> test_elections;
     private ArrayList<Election> public_elections;
+    boolean logged_in = false;
 
     public TestDataManager() {
         test_elections = new ArrayList<Election>();
@@ -93,12 +94,13 @@ public class TestDataManager implements DataManager {
 
     @Override
     public boolean login(String username, String password) {
+        logged_in = true;
         return true;
     }
 
     @Override
     public boolean isLoggedIn() {
-        return true;
+        return logged_in;
     }
 
     @Override

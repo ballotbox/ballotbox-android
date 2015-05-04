@@ -36,6 +36,7 @@
         />
 
         <EditText
+            android:id="@+id/username_input"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="center"
@@ -50,12 +51,14 @@
         />
 
         <EditText
+            android:id="@+id/password_input"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="center"
             android:inputType="textPassword"/>
 
         <Button
+            android:id="@+id/login_submit_button"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:text="@string/submit"/>

@@ -18,7 +18,7 @@ public class MainMenuActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        dataManager = new TestDataManager();
+        dataManager = getIntent().getParcelableExtra("data_manager");
         setContentView(R.layout.main_menu);
 
         //set the event listeners for buttons

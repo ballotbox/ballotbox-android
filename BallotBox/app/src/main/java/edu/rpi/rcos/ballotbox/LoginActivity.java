@@ -9,26 +9,46 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.gulena.ballotbox.R;
-import com.google.api.client.auth.oauth2.AuthorizationCodeFlow;
-import com.google.api.client.googleapis.auth.oauth2.GoogleCredential;
 
 
 public class LoginActivity extends Activity {
-
+    DataManager dataManager;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        if (savedInstanceState == null) {
-            getFragmentManager().beginTransaction()
-                    .add(R.id.container, new PlaceholderFragment())
-                    .commit();
-        }
+        dataManager = getIntent().getParcelableExtra("data_manager");
+        setContentView(R.layout.activity_login);
+        Button submit = (Button)findViewById(R.id.login_submit_button);
+        submit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                submitLogin();
+            }
+        });
     }
 
+    public boolean submitLogin() {
+        EditText username_text = (EditText)findViewById(R.id.username_input);
+        String username = username_text.getText().toString();
+        EditText password_text = (EditText)findViewById(R.id.password_input);
+        String password = password_text.getText().toString();
+
+        if(dataManager.login(username, password)) {
+            Intent intent = new Intent(this,MainMenuActivity.class);
+            intent.putExtra("data_manager",dataManager);
+            startActivity(intent);
+            finish();
+            return true;
+        } else {
+            Toast.makeText(this,"Incorrect username and password",Toast.LENGTH_LONG);
+            return false;
+        }
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -52,21 +72,5 @@ public class LoginActivity extends Activity {
             startActivity(intent);
         }
         return super.onOptionsItemSelected(item);
-    }
-
-    /**
-     * A placeholder fragment containing a simple view.
-     */
-    public static class PlaceholderFragment extends Fragment {
-
-        public PlaceholderFragment() {
-        }
-
-        @Override
-        public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                Bundle savedInstanceState) {
-            View rootView = inflater.inflate(R.layout.fragment_main, container, false);
-            return rootView;
-        }
     }
 }

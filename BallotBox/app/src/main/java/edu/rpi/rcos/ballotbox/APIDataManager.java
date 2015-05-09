@@ -3,22 +3,34 @@ package edu.rpi.rcos.ballotbox;
 import android.os.Parcel;
 
 import java.util.ArrayList;
+import java.util.List;
+
+import retrofit.RestAdapter;
 
 public class APIDataManager implements DataManager {
 
     String authKey;
-    public APIDataManager() {}
+    RestAdapter restAdapter;
+    VotesAPI votesAPI;
+    public APIDataManager() {
+        restAdapter = new RestAdapter.Builder()
+                .setEndpoint("https://ballot-box.herokuapp.com/api/")
+                .build();
+        votesAPI = restAdapter.create(VotesAPI.class);
+    }
 
     //GET /elections/{id}
 
     @Override
     public Election getElectionWithID(String private_id) {
-        Election e = new Election();
+        Election e = votesAPI.getElection(private_id);
         Choice currentChoice = getVoteOnElection(e);
         if(currentChoice != null) {
             for(Choice c : e.getChoices()) {
                 if(c.equals(currentChoice)) {
                     c.setVoted(true);
+                } else {
+                    c.setVoted(false);
                 }
             }
         }
@@ -28,42 +40,52 @@ public class APIDataManager implements DataManager {
     //GET /elections
 
     @Override
-    public ArrayList<Election> getPublicElections() {
-        return null;
+    public List<Election> getPublicElections() {
+        List<Election> elections = votesAPI.getPublicElections();
+        return elections;
     }
 
     //GET /elections/{id}/vote
 
     @Override
     public Choice getVoteOnElection(Election e) {
-        return null;
+        Choice c = votesAPI.getVotesOnElection(e.getRandomAccessId());
+        return c;
     }
 
     //POST /elections
 
     @Override
     public Election createNewElection(Election e) {
-        return null;
+        Election election = votesAPI.createNewElection(e);
+        return election;
     }
 
     //PUT /elections/{id}
 
     @Override
     public Election editElection(Election e) {
-        return null;
+        Election election = votesAPI.editElection(e);
+        return election;
     }
 
     //DELETE /elections/{id}
 
     @Override
     public boolean deleteElection(Election e) {
-        return false;
+
+        return votesAPI.deleteElection(e.getRandomAccessId());
     }
 
     //POST /elections/{id}/choices/{id}/vote
 
     @Override
     public boolean voteOnElection(Election e, Choice c) {
+        return votesAPI.voteOnElection(e.getRandomAccessId(),c.getId());
+    }
+
+    private boolean getCreds(String username, String password) {
+
         return false;
     }
 
